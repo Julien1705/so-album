@@ -1,0 +1,52 @@
+    body {
+        background-image: url(../images/fond_choix_projet.jpg);
+    }
+
+    .choix-page {
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+    }
+
+    .form {
+    position: relative;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 20px 50px 25px 50px;
+    }
+
+    .form button {
+        background: #1076BD;
+        width: 100%;
+        border: none;
+        padding: 5px;
+        color: #FFFFFF;
+        font-size: 14px;
+        transition: all 0.3 ease;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-top: 25px;
+    }
+
+    select {
+        border: none;
+        width: 100%;
+        padding: 5px;
+        background: #dfebfc;
+        border-radius: 8px;
+    }
+
+    label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    .iconify {
+        position: absolute;
+        right: 35px;
+        color: #1076BD;
+        cursor: pointer;
+    }
