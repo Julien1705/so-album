@@ -19,7 +19,7 @@
                 <input type="text" id="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="fals" placeholder="Email">
                 <label>Mots de passe :</label>
                 <input type="password" id="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
-                <button type="submit" id="BTN_Connexion" class="btn btn-primary">Connexion</button><br>
+                <a href="./view/choix_projet.php"><button type="submit" id="BTN_Connexion" class="btn btn-primary">Connexion</button></a><br>
 
                 <br><div id="ErreurLogin" style="display: none;" class="container alert alert-dismissible alert-warning">
                   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
