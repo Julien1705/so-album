@@ -1,0 +1,30 @@
+/* html, body{overflow:hidden;} */
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+.Logo_Connection {
+    width: 50%;
+    margin-left:50%;
+    margin-top: 25% ;
+    transform: translate(-50%);
+}
+
+#Inpute_Entré {
+    width: 400px;
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+label {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#BTN_Connexion {
+    margin-top: 20px;
+    width: 400px;
+}
