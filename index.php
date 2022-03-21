@@ -61,44 +61,24 @@
             let ErreurPassword  = document.getElementById("ErreurPassword");
             let MauvaisLogin    = true;
             let MauvaisPassword = true;
-            let loginBDD        =   "<?php
-                                        $mysqli = new mysqli("localhost", "root", "", "so_album");
-                                        $mysqli->set_charset("utf8");
-                                        $requete = "SELECT * FROM connexion";
-                                        $resultat = $mysqli->query($requete);
-                                        while ($ligne = $resultat->fetch_assoc()) {
-                                        echo $ligne['login'];
-                                        }
-                                        $mysqli->close();
-                                    ?>";
-            let passwordBDD        =   "<?php
-                                        $mysqli = new mysqli("localhost", "root", "", "so_album");
-                                        $mysqli->set_charset("utf8");
-                                        $requete = "SELECT * FROM connexion";
-                                        $resultat = $mysqli->query($requete);
-                                        while ($ligne = $resultat->fetch_assoc()) {
-                                        echo $ligne['password'];
-                                        }
-                                        $mysqli->close();
-                                    ?>";
+            let loginBDD = "";
+            let passwordBDD = "";
 
             loginI.addEventListener('blur', (event) => {
                 Verif_Login();
-                ComparLogin();
             });
 
             passwordI.addEventListener('blur', (event) => {
                 Verif_Login();
-                ComparLogin();
                 Verif_Password();
-                ComparPassword();
             });
 
             seconnecter.addEventListener('click', (event) => {
+                Verification();
                 Redirection();
             });
 
-            function ComparLogin()
+            function ComparLogin(loginBDD)
             {
                 if(loginI.value == loginBDD)
                 {
@@ -110,7 +90,7 @@
                 }
             }
 
-            function ComparPassword()
+            function ComparPassword(passwordBDD)
             {
                 if(passwordI.value == passwordBDD)
                 {
@@ -128,6 +108,31 @@
 
                 Verif_Login();
                 Verif_Password();
+
+                if(loginI.classList[1] == "is-valid" && passwordI.classList[1] == "is-valid"){
+                    let loginBDD        =   "<?php
+                                        $mysqli = new mysqli("localhost", "root", "", "so_album");
+                                        $mysqli->set_charset("utf8");
+                                        $requete = "SELECT * FROM connexion";
+                                        $resultat = $mysqli->query($requete);
+                                        while ($ligne = $resultat->fetch_assoc()) {
+                                        echo $ligne['login'];
+                                        }
+                                        $mysqli->close();
+                                    ?>";
+                    let passwordBDD     =   "<?php
+                                        $mysqli = new mysqli("localhost", "root", "", "so_album");
+                                        $mysqli->set_charset("utf8");
+                                        $requete = "SELECT * FROM connexion";
+                                        $resultat = $mysqli->query($requete);
+                                        while ($ligne = $resultat->fetch_assoc()) {
+                                        echo $ligne['password'];
+                                        }
+                                        $mysqli->close();
+                                    ?>";
+                ComparLogin(loginBDD);
+                ComparPassword(passwordBDD);
+                }
             };
             
 
@@ -181,6 +186,7 @@
 
             function Redirection(){
                 if (MauvaisPassword == false && MauvaisLogin == false){
+                    console.log(MauvaisPassword);
                     window.location.href = "./view/choix_projet.php";
                 }
             }
