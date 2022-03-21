@@ -5,54 +5,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Choix du projet et de l'évènement</title>
     <link rel="stylesheet" href="../css/choix_projet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="choix-page">
-    <div class="form">
-        <a href="../index.php">
-            <span class="iconify" data-width="25" data-height="28" data-icon="ant-design:logout-outlined" data-rotate="270deg">
-            </span>
-        </a>
-        <form class="choix-form">
-            <label>Choisir votre projet</label>
-            <select name="" id="">
-                <option value="" selected>Votre projet
-                </option>
-                <option value="">Projet 1</option>
-                <option value="">Projet 2</option>
-                <option value="">Projet 3</option>
-            </select>
-        </form>
-        <form class="choix-form">
-            <label>Choisir votre évènement</label>
-            <select name="" id="">
-                <option value="" selected>Votre évènement
-                </option>
-                <option value="">Evènement 1</option>
-                <option value="">Evènement 2</option>
-                <option value="">Evènement 3</option>
-            </select>
-        </form>
-        <button>Continuer</button>
+        <div class="form">
+            <a href="../index.php">
+                <span class="iconify" data-width="25" data-height="28" data-icon="ant-design:logout-outlined" data-rotate="270deg"></span>
+            </a>
+            <form class="choix-form">
+                <label>Choisir votre projet</label>
+                <select name="projet" id="projet" required>
+                    <option value="selected" selected>Votre projet</option>
+                    <?php
+                    $projets = './liste_projets';
+                    $dir = opendir($projets);
+
+                    while ($file = readdir($dir)) {
+                        if ($file != '.' && $file != '..' && !is_dir($projets . $file)) {
+                            echo '<option value="projet" href="' . $projets . '/' . $file . '">' . $file . '</option>' . '<br /><br />';
+                        } else {
+                            echo 'Aucun projet disponible';
+                        }
+                    }
+                    ?>
+                </select>
+            </form>
+            <form class="choix-form">
+                <label>Choisir votre évènement</label>
+                <select name="evenement" id="evenement" required>
+                    <option value="selected" selected>Votre évènement</option>
+                    <?php
+                    $evenements = './liste_projets/2021-9846/ALBUM_PSD';
+                    $dir = opendir($evenements);
+
+                    while ($file = readdir($dir)) {
+                        if ($file != '.' && $file != '..' && !is_dir($evenements . $file)) {
+                            echo '<option value="evenement" href="' . $evenements . '/' . $file . '">' . $file . '</option>' . '<br /><br />';
+                        } else {
+                            echo 'Aucun évènement disponible';
+                        }
+                    }
+                    ?>
+                </select>
+            </form>
+            <a href="./page_principale.php">
+                <button type="submit">Continuer</button>
+            </a>
+        </div>
     </div>
-</div>
 </body>
 
 
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
