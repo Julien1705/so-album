@@ -15,9 +15,29 @@ body {
 
 #Inpute_Entré {
     width: 50%;
-    margin-top: 50px;
+    margin-top: 0px;
     margin-left: 50%;
     transform: translate(-50%);
+}
+
+.alert {
+    font-size: 14px;
+    line-height: 1.1rem;
+    height: 180%;
+}
+
+#ErreurLogin {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#ErreurPassword{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#PartieEmail {
+    padding-bottom: 15px;
 }
 
 label {
