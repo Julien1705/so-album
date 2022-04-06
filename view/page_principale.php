@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success m-2" href="#"><i class="bi bi-house-door"></i></a>
+                        <a class="nav-link btn btn-success m-2" href="../index.php"><i class="bi bi-house-door"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-success m-2" href="#"><i class="bi bi-box-arrow-left"></i></a>
+                        <a class="nav-link btn btn-success m-2" href="./choix_projet.php"><i class="bi bi-box-arrow-left"></i></a>
                     </li>
                 </ul>
 
