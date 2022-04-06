@@ -70,95 +70,34 @@
             <div class="col-4" id="colonne_left">
                 <div class="form-group mt-3">
                     <select class="form-select" id="exampleSelect1">
-                        <option>Type de projet</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option>Mariage</option>
                     </select>
                 </div>
                 <div class="row mt-3">
                     <div class="col-6 mb-2">
                         <select class="form-select" id="exampleSelect1">
-                            <option>Theme</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option></option>
                         </select>
                     </div>
                     <div class="col-6 mb-2">
-                        <select class="form-select" id="exampleSelect1">
-                            <option>Nombre de photos</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-select" id="nb_photos">
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-6 page m-1"></div>
-                            <div class="col-6 page m-1"></div>
+                        <div class="row d-flex justify-content-center" id="double-page">
+                            <div class="col-6 page m-1 pointer bg-selected"></div>
+                            <div class="col-6 page m-1 pointer bg-selected"></div>
                         </div>
                     </div>
-                    <div class="col-6 d-flex justify-content-center">
-                        <div class="one-page m-1"></div>
+                    <div class="col-6 d-flex justify-content-center" id="simple-page">
+                        <div class="one-page m-1 pointer bg-default"></div>
                     </div>
                 </div>
                 <div class="dropdown-divider divider-main"></div>
-                <div class="border rounded maquette-choisi"><img class="border rounded" src="../ressources/maquettes/jpg/@002.jpg"></div>
-                <div class="row scroll-bar mt-3">
-                    <div class="col-6 mb-2 ">
-                        <div class="border rounded maquette"><img class="border rounded" src="../ressources/maquettes/jpg/@000.jpg"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
-                    <div class="col-6 mb-2">
-                        <div class="border rounded maquette"></div>
-                    </div>
+                <div class="border rounded maquette-choisi" id="maquette-choisi"></div>
+                <div class="row scroll-bar mt-3" id="liste-maquette">
                 </div>
             </div>
             <div class="col-8" id="colonne_right">
@@ -224,10 +163,10 @@
                     </div>
                 </div>
                 <div class="row mt-3 scroll-bar-img" id="scroll-bar-img">
-                    <?php for ($i=0; $i < 100; $i++) : ?>
+                    <?php for ($i = 0; $i < 100; $i++) : ?>
                     <?php echo "<div class='col-1 mb-2 zoom'>
                         <div class='border rounded test'><img class='border rounded' src='../images/placeholder_1.png'></div>
-                    </div>"; 
+                    </div>";
                     endfor;
                     ?>
                 </div>
@@ -235,69 +174,9 @@
         </div>
     </div>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        var row_cache = true;
-        var affichage_complet = false;
-        var nb_colonnes_img = 12;
-
-        $("#case_plus").click(function() {
-            if (row_cache === true) {
-                $("#row_case_plus").addClass("d-flex justify-content-around");
-                $("#row_case_plus").removeClass("d-none");
-                $("#icon-circle").replaceWith("<i id='icon-circle' class='bi bi-dash-circle'></i>");
-                $("#scroll-bar-img").css("height", "50vh");
-                row_cache = false;
-            }else{
-                $("#row_case_plus").removeClass("d-flex justify-content-around");
-                $("#row_case_plus").addClass("d-none");
-                $("#icon-circle").replaceWith("<i id='icon-circle' class='bi bi-plus-circle'></i>");
-                $("#scroll-bar-img").css("height", "63vh");
-                row_cache = true;
-            }
-        });
-
-        $("#affichage_complet").click(function() {
-            if (affichage_complet === true) {
-                $("#colonne_left").removeClass("d-none");
-                $("#colonne_left").addClass("col-4");
-                $("#colonne_right").removeClass("col-12");
-                $("#colonne_right").addClass("col-8");
-                $("#circle-arrow").replaceWith("<i id='circle-arrow' class='bi bi-arrow-left-circle'></i>");
-                affichage_complet = false;
-            }else{
-                $("#colonne_left").addClass("d-none");
-                $("#colonne_left").removeClass("col-4");
-                $("#colonne_right").removeClass("col-8");
-                $("#colonne_right").addClass("col-12");
-                $("#circle-arrow").replaceWith("<i id='circle-arrow' class='bi bi-arrow-right-circle'></i>");
-                affichage_complet = true;
-            }
-        });
-
-        $("#btn-zoom").click(function() {
-            if (nb_colonnes_img === 12) {
-                $(".zoom").addClass("col-3");
-                $(".zoom").removeClass("col-1");
-                $("#icon-zoom").replaceWith('<i id="icon-zoom" class="bi bi-zoom-in"></i>');
-                nb_colonnes_img = 4;
-            }else if(nb_colonnes_img === 4){
-                $(".zoom").addClass("col-2");
-                $(".zoom").removeClass("col-3");
-                nb_colonnes_img = 6;
-            }else{
-                $(".zoom").addClass("col-1");
-                $(".zoom").removeClass("col-2");
-                $("#icon-zoom").replaceWith('<i id="icon-zoom" class="bi bi-zoom-out"></i>');
-                nb_colonnes_img = 12; 
-            }
-        });
-
-        
-    </script>
+    <script src="../js/js_page_principale.js"></script>
 </body>
 
 </html>

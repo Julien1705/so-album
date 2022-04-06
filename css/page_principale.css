@@ -15,6 +15,18 @@
     background-color: white;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
+.bg-selected{
+    background-color: #14A085;
+}
+
+.bg-default{
+    background-color: white;
+}
+
 .divider-main{
     background-color: white;
 }
@@ -22,6 +34,8 @@
 .maquette{
     height: 100px;
     background-color: white;
+    cursor: pointer;
+    
 }
 
 .maquette-choisi{
