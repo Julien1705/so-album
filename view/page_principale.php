@@ -118,9 +118,9 @@
                     </div>
                 </div>
                 <div class="row mt-3 d-flex justify-content-around">
-                    <div class="col-1 case-choice">A</div>
-                    <div class="col-1 case-choice">B</div>
-                    <div class="col-1 case-choice">C</div>
+                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">A</div>
+                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     <div class="col-1 case-choice">D</div>
                     <div class="col-1 case-choice">E</div>
                     <div class="col-1 case-choice">F</div>
@@ -163,12 +163,17 @@
                     </div>
                 </div>
                 <div class="row mt-3 scroll-bar-img" id="scroll-bar-img">
+                
                     <?php for ($i = 0; $i < 100; $i++) : ?>
-                    <?php echo "<div class='col-1 mb-2 zoom'>
-                        <div class='border rounded test'><img class='border rounded' src='../images/placeholder_1.png'></div>
+                    <?php echo "<div  class='col-1 mb-2 zoom'>
+                        <div id='div1' class='border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'></div>
                     </div>";
+                    
                     endfor;
                     ?>
+                    <!-- <div id='div1' ondrop='drop(event)' ondragover='allowDrop(event)'>
+                        <img class='ImgPlace' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -177,6 +182,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="../js/js_page_principale.js"></script>
+    <script src="../js/DragAndDrop.js"></script>
+
 </body>
 
 </html>
