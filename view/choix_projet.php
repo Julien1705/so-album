@@ -36,15 +36,15 @@
             </form>
 
             <form class="choix-form">
-                <label>Choisir votre évènement</label>
+                <label for="evenement">Choisir votre évènement</label>
                 <select id="evenement">
                     <option selected>Votre évènement</option>
                     <?php
-                    $projets = './liste_projets/2021-9846/ALBUM_PSD';
-                    $dir = opendir($projets);
+                    $evenements = './liste_projets/2021-9846/ALBUM_PSD';
+                    $dir = opendir($evenements);
                     while ($file = readdir($dir)) {
-                        if ($file != '.' && $file != '..' && !is_dir($projets . $file)) {
-                            echo '<option value="" href="' . $projets . '/' . $file . '">' . $file . '</option>' . '<br /><br />';
+                        if ($file != '.' && $file != '..' && !is_dir($evenements . $file)) {
+                            echo '<option value="" href="' . $evenements . '/' . $file . '">' . $file . '</option>' . '<br /><br />';
                         } else {
                             echo 'Aucun évènement disponible';
                         }
@@ -81,22 +81,22 @@
     });
 
     function ChoixProjet() {
-        if (projet) {
-            console.log("Projet sélectionné");
-            SelectionProjet = false;
-        } else {
+        if (projet == null) {
             console.log("Sélectionner votre projet");
             SelectionProjet = true;
+        } else {
+            console.log("Projet sélectionné");
+            SelectionProjet = false;
         }
     }
 
     function ChoixEvenement() {
-        if (evenement) {
-            console.log("Évènement sélectionné");
-            SelectionEvenement = false;
-        } else {
+        if (evenement == null) {
             console.log("Sélectionner votre évènement");
             SelectionEvenement = true;
+        } else {
+            console.log("Évènement sélectionné");
+            SelectionEvenement = false;
         }
     }
 
