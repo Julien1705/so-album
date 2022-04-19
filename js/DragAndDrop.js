@@ -16,12 +16,4 @@ function drop(ev) {
   document.getElementById(data).className += " col-md-12";
 }
 
-$(document).ready(function () {
-  $('.drag').mousedown(function () {
-    $(this).addClass('ondrag');
-  })
-    .mouseup(function () {
-      $(this).removeClass('ondrag');
-    });
-});
   // this.childNodes[0].setAttribute('display', 'none');

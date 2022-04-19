@@ -163,30 +163,18 @@
                     </div>
                 </div>
                 <div class="row mt-3 scroll-bar-img" id="scroll-bar-img">
-                
-                <?php for ($i = 0; $i < 100; $i++) : ?>
-                    <?php echo "
-                        <img class='col-1 offset-md-0  mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
-                    ";
-                    endfor;
-                    ?>
 
-                    <!-- <div id='div1' ondrop='drop(event)' ondragover='allowDrop(event)'>
-                        <img class='ImgPlace' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
-                    </div> -->
+                        <!-- CHARGEMENT DES IMAGES -->
+                        <?php for ($i = 0; $i < 100; $i++) : ?>
+                            <?php echo "<img class='col-1 offset-md-0 mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'> ";
+                            endfor;
+                        ?>
 
-                    <!-- pb avec le col / mais suppression "
-                        <div draggable='true' ondragstart='drag(event)' id='drag$i' class=' col-1 mb-2 zoom border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png' ></div>
-                    " -->
-
-                    <!-- "<div class='col-1 mb-2 zoom'>
-                        <div draggable='true' ondragstart='drag(event)' id='drag$i' class='border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png'></div>
-                    </div>" -->
-
-                    <!-- "
-                        <img class='col-1 mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
-                     -->
-                </div>
+                        <!-- CHARGEMENT DES DIVES POUBELLE POUR REPLACER LES IMAGES -->
+                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                            <?php echo "<div class='col-1 zoom' ondrop='drop(event)' id='Poubelle$i' ondragover='allowDrop(event)' draggable='true' ondragstart='drag(event)'></div>";
+                            endfor;
+                        ?>
             </div>
         </div>
     </div>
