@@ -31,8 +31,8 @@ if ($nbZones == 0) {
 
         $code = "";
         while ($row = $stmt->fetch()) {
-            $code .= "<div class='col-6 mb-2 test2' id='$row[0]'>
-                <div class='border rounded maquette'><img class='border rounded' src='../ressources/maquettes/jpg/$row[0].jpg'></div>
+            $code .= "<div class='col-6 mb-2'>
+                <div class='border rounded maquette' id='$row[0]'><img class='border rounded img_maquette' src='../ressources/maquettes/jpg/$row[0].jpg'></div>
             </div>";
         }
     } catch (PDOException $e) {
@@ -53,8 +53,8 @@ if ($nbZones == 0) {
 
         $code = "";
         while ($row = $stmt->fetch()) {
-            $code .= "<div class='col-6 mb-2 test2' id='$row[0]'>
-                <div class='border rounded maquette'><img class='border rounded' src='../ressources/maquettes/jpg/$row[0].jpg'></div>
+            $code .= "<div class='col-6 mb-2'>
+                <div class='border rounded maquette' id='$row[0]'><img class='border rounded img_maquette' src='../ressources/maquettes/jpg/$row[0].jpg'></div>
             </div>";
         }
     } catch (PDOException $e) {

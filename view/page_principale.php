@@ -118,32 +118,32 @@
                     </div>
                 </div>
                 <div class="row mt-3 d-flex justify-content-around">
-                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">A</div>
-                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                    <div class="col-1 case-choice" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                    <div class="col-1 case-choice">D</div>
-                    <div class="col-1 case-choice">E</div>
-                    <div class="col-1 case-choice">F</div>
-                    <div class="col-1 case-choice">G</div>
-                    <div class="col-1 case-choice">H</div>
-                    <div class="col-1 case-choice">I</div>
-                    <div class="col-1 case-choice">J</div>
-                    <div class="col-1 case-choice">K</div>
-                    <div class="col-1 case-choice">L</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="A" ondragover="allowDrop(event)">A</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="B" ondragover="allowDrop(event)">B</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="C" ondragover="allowDrop(event)">C</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="D" ondragover="allowDrop(event)">D</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="E" ondragover="allowDrop(event)">E</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="F" ondragover="allowDrop(event)">F</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="G" ondragover="allowDrop(event)">G</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="H" ondragover="allowDrop(event)">H</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="I" ondragover="allowDrop(event)">I</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="J" ondragover="allowDrop(event)">J</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="K" ondragover="allowDrop(event)">K</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="L" ondragover="allowDrop(event)">L</div> 
                 </div>
                 <div class="row mt-3 d-none" id="row_case_plus">
-                    <div class="col-1 case-choice">M</div>
-                    <div class="col-1 case-choice">N</div>
-                    <div class="col-1 case-choice">O</div>
-                    <div class="col-1 case-choice">P</div>
-                    <div class="col-1 case-choice">Q</div>
-                    <div class="col-1 case-choice">R</div>
-                    <div class="col-1 case-choice">S</div>
-                    <div class="col-1 case-choice">T</div>
-                    <div class="col-1 case-choice">U</div>
-                    <div class="col-1 case-choice">V</div>
-                    <div class="col-1 case-choice">W</div>
-                    <div class="col-1 case-choice">X</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="M" ondragover="allowDrop(event)">M</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="N" ondragover="allowDrop(event)">N</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="O" ondragover="allowDrop(event)">O</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="P" ondragover="allowDrop(event)">P</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="Q" ondragover="allowDrop(event)">Q</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="R" ondragover="allowDrop(event)">R</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="S" ondragover="allowDrop(event)">S</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="T" ondragover="allowDrop(event)">T</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="U" ondragover="allowDrop(event)">U</div>                    
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="V" ondragover="allowDrop(event)">V</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="W" ondragover="allowDrop(event)">W</div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="X" ondragover="allowDrop(event)">X</div> 
                 </div>
                 <div class="row mt-3">
                     <div class="col-6">
@@ -164,16 +164,28 @@
                 </div>
                 <div class="row mt-3 scroll-bar-img" id="scroll-bar-img">
                 
-                    <?php for ($i = 0; $i < 100; $i++) : ?>
-                    <?php echo "<div  class='col-1 mb-2 zoom'>
-                        <div id='div1' class='border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'></div>
-                    </div>";
-                    
+                <?php for ($i = 0; $i < 100; $i++) : ?>
+                    <?php echo "
+                        <img class='col-1 offset-md-0  mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
+                    ";
                     endfor;
                     ?>
+
                     <!-- <div id='div1' ondrop='drop(event)' ondragover='allowDrop(event)'>
                         <img class='ImgPlace' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
                     </div> -->
+
+                    <!-- pb avec le col / mais suppression "
+                        <div draggable='true' ondragstart='drag(event)' id='drag$i' class=' col-1 mb-2 zoom border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png' ></div>
+                    " -->
+
+                    <!-- "<div class='col-1 mb-2 zoom'>
+                        <div draggable='true' ondragstart='drag(event)' id='drag$i' class='border rounded test'><img class='border rounded ImgDragable ImgPlace' src='../images/placeholder_1.png'></div>
+                    </div>" -->
+
+                    <!-- "
+                        <img class='col-1 mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'>
+                     -->
                 </div>
             </div>
         </div>
