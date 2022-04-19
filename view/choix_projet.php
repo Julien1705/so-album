@@ -17,9 +17,9 @@
                 <span class="iconify" data-width="25" data-height="28" data-icon="ant-design:logout-outlined" data-rotate="270deg"></span>
             </a>
 
-            <form class="choix-form">
+            <form action="./page_principale.php" method="POST" class="choix-form">
                 <label for="projet">Choisir votre projet</label>
-                <select id="projet">
+                <select id="projet" name="projet">
                     <option selected>Votre projet</option>
                     <?php
                     $projets = './liste_projets';
@@ -35,10 +35,10 @@
                 </select>
 
                 <label for="evenement">Choisir votre évènement</label>
-                <select id="evenement">
+                <select id="evenement" name="evenement">
                 </select>
 
-                <button type="button" id="choix_projet">Continuer</button>
+                <button type="submit" id="choix_projet">Continuer</button>
             </form>
             
         </div>

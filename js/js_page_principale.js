@@ -88,6 +88,8 @@ $.ajax({
     }
 });
 
+
+
 $('#nb_photos').change(function () {
     nb_zones = $('#nb_photos').val();
     initialisation_maquette(nb_pages, nb_zones);
@@ -110,13 +112,49 @@ function initialisation_maquette($nbPages, $nbZones = 0) {
 };
 
 
-$(document).on("click", "img", function(event) {
+$(document).on("click", "img", function (event) {
     if ($(event.target).attr('class') == "border rounded img_maquette") {
         var img = $(this).parent().attr('id');
         var code_html = "<img class='border rounded' src='../ressources/maquettes/jpg/" + img + ".jpg'>";
         $('#maquette-choisi').html(code_html);
     }
 });
+
+
+$(".type_evenement").click(function () {
+    evenement = this.text;
+    projet = ($("#fil_ariane")[0].innerText).split('>')[0];
+    $('#fil_ariane').html(projet + '> ' + evenement);
+});
+
+// ! --------------------------------------------------------------------------------------------------
+// ! ACCES FOLDER
+// ! --------------------------------------------------------------------------------------------------
+
+function readSingleFile(e) {
+    var file = e.target.files[0];
+    if (!file) {
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var contents = e.target.result;
+        displayContents(contents);
+    };
+    reader.readAsText(file);
+}
+
+function displayContents(contents) {
+    var element = document.getElementById('file-content');
+    element.textContent = contents;
+}
+
+document.getElementById('file-input')
+    .addEventListener('change', readSingleFile, false);
+
+
+
+
 
 
 

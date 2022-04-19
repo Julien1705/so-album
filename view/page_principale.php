@@ -38,11 +38,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle btn btn-success m-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">EVENEMENTS</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">MR</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">PR</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">CT</a>
+                            <?php
+                            $evenement = './liste_projets/' . $_POST['projet'] . '/ALBUM_PSD';
+                            $dir = opendir($evenement);
+                            while ($file = readdir($dir)) {
+                                if ($file != '.' && $file != '..' && !is_dir($evenement . $file)) {
+                                    echo '<a class="dropdown-item type_evenement" href="#">' . $file . '</a>
+                                <div class="dropdown-divider"></div>';
+                                }
+                            }
+                            ?>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -54,7 +59,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Visualiser</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Acces Folder</a>
+                            <a class="dropdown-item" href="#"><input type="file" id="file-input" /></a>
                         </div>
                     </li>
                     <li>
@@ -114,36 +119,36 @@
                         <button class="btn btn-success" id="case_plus"><i id="icon-circle" class="bi bi-plus-circle"></i></button>
                     </div>
                     <div class="col-11 d-flex">
-                        <div class="text-white  align-self-center">2019-9401 > MR > 01_ENTREE</div>
+                        <div class="text-white  align-self-center" id="fil_ariane"><?= $_POST['projet'] ?> > <?= $_POST['evenement'] ?></div>
                     </div>
                 </div>
                 <div class="row mt-3 d-flex justify-content-around">
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="A" ondragover="allowDrop(event)">A</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="B" ondragover="allowDrop(event)">B</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="C" ondragover="allowDrop(event)">C</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="D" ondragover="allowDrop(event)">D</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="E" ondragover="allowDrop(event)">E</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="F" ondragover="allowDrop(event)">F</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="G" ondragover="allowDrop(event)">G</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="H" ondragover="allowDrop(event)">H</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="I" ondragover="allowDrop(event)">I</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="J" ondragover="allowDrop(event)">J</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="K" ondragover="allowDrop(event)">K</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="L" ondragover="allowDrop(event)">L</div> 
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="A" ondragover="allowDrop(event)"><span style="position: absolute;">A</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="B" ondragover="allowDrop(event)"><span style="position: absolute;">B</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="C" ondragover="allowDrop(event)"><span style="position: absolute;">C</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="D" ondragover="allowDrop(event)"><span style="position: absolute;">D</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="E" ondragover="allowDrop(event)"><span style="position: absolute;">E</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="F" ondragover="allowDrop(event)"><span style="position: absolute;">F</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="G" ondragover="allowDrop(event)"><span style="position: absolute;">G</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="H" ondragover="allowDrop(event)"><span style="position: absolute;">H</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="I" ondragover="allowDrop(event)"><span style="position: absolute;">I</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="J" ondragover="allowDrop(event)"><span style="position: absolute;">J</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="K" ondragover="allowDrop(event)"><span style="position: absolute;">K</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="L" ondragover="allowDrop(event)"><span style="position: absolute;">L</span></div>
                 </div>
                 <div class="row mt-3 d-none" id="row_case_plus">
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="M" ondragover="allowDrop(event)">M</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="N" ondragover="allowDrop(event)">N</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="O" ondragover="allowDrop(event)">O</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="P" ondragover="allowDrop(event)">P</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="Q" ondragover="allowDrop(event)">Q</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="R" ondragover="allowDrop(event)">R</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="S" ondragover="allowDrop(event)">S</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="T" ondragover="allowDrop(event)">T</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="U" ondragover="allowDrop(event)">U</div>                    
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="V" ondragover="allowDrop(event)">V</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="W" ondragover="allowDrop(event)">W</div>
-                    <div class="col-1 case-choice" ondrop="drop(event)" id="X" ondragover="allowDrop(event)">X</div> 
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="M" ondragover="allowDrop(event)"><span style="position: absolute;">M</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="N" ondragover="allowDrop(event)"><span style="position: absolute;">N</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="O" ondragover="allowDrop(event)"><span style="position: absolute;">O</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="P" ondragover="allowDrop(event)"><span style="position: absolute;">P</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="Q" ondragover="allowDrop(event)"><span style="position: absolute;">Q</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="R" ondragover="allowDrop(event)"><span style="position: absolute;">R</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="S" ondragover="allowDrop(event)"><span style="position: absolute;">S</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="T" ondragover="allowDrop(event)"><span style="position: absolute;">T</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="U" ondragover="allowDrop(event)"><span style="position: absolute;">U</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="V" ondragover="allowDrop(event)"><span style="position: absolute;">V</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="W" ondragover="allowDrop(event)"><span style="position: absolute;">W</span></div>
+                    <div class="col-1 case-choice" ondrop="drop(event)" id="X" ondragover="allowDrop(event)"><span style="position: absolute;">X</span></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-6">
@@ -162,27 +167,21 @@
                         <button class="btn btn-success info_nb_psd" id="btn-zoom"><i id="icon-zoom" class="bi bi-zoom-out"></i></button>
                     </div>
                 </div>
-                <div class="row mt-3 scroll-bar-img" id="scroll-bar-img">
+                <div class="row mt-3 scroll-bar-img" ondragover='allowDrop(event)' ondrop="dropV2(event)" id="scroll-bar-img">
 
-                        <!-- CHARGEMENT DES IMAGES -->
-                        <?php for ($i = 0; $i < 100; $i++) : ?>
-                            <?php echo "<img class='col-1 offset-md-0 mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'> ";
-                            endfor;
-                        ?>
-
-                        <!-- CHARGEMENT DES DIVES POUBELLE POUR REPLACER LES IMAGES -->
-                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                            <?php echo "<div class='col-1 zoom' ondrop='drop(event)' id='Poubelle$i' ondragover='allowDrop(event)' draggable='true' ondragstart='drag(event)'></div>";
-                            endfor;
-                        ?>
+                    <!-- CHARGEMENT DES IMAGES -->
+                    <?php for ($i = 0; $i < 100; $i++) : ?>
+                    <?php echo "<img class='col-1 p-0 mx-2 offset-md-0 mb-2 zoom rounded' src='../images/placeholder_1.png' draggable='true' ondragstart='drag(event)' id='drag$i'> ";
+                    endfor;
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="../js/js_page_principale.js"></script>
-    <script src="../js/DragAndDrop.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="../js/js_page_principale.js"></script>
+        <script src="../js/DragAndDrop.js"></script>
 
 </body>
 
