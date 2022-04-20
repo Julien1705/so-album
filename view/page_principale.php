@@ -59,7 +59,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Visualiser</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><input type="file" id="file-input" /></a>
+                            <a class="dropdown-item" onclick="document.getElementById('file-input').click()">Accès Folder</a>
+                            <input id="file-input" type="file" name="name" style="display: none" />
                         </div>
                     </li>
                     <li>
@@ -153,8 +154,8 @@
                 <div class="row mt-3">
                     <div class="col-6">
                         <div class="btn btn-success rounded-pill">01_ENTREE</div>
-                        <div class="btn btn-success rounded-pill">01_ENTREE</div>
-                        <div class="btn btn-success rounded-pill">01_ENTREE</div>
+                        <div class="btn btn-success rounded-pill">02_ENTREE</div>
+                        <div class="btn btn-success rounded-pill">03_ENTREE</div>
                     </div>
                     <div class="col-4">
                         <form class="d-flex">
